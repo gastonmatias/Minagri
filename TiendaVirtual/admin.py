@@ -1,5 +1,5 @@
 from django.contrib import admin
-# from django.db.models.base import Model
+from django.db import models
 
 # Register your models here.
 class Productor(models.Model):
@@ -12,6 +12,20 @@ class Productor(models.Model):
     telefono2 = models.Charfield(max_lenght = 20,null='true')
     bancoAsociado = models.Charfield(max_lenght = 20,null='true')
     nroCuenta = models.IntergerField(null='true')
+
+class Cliente(models.Model):
+    nombre = models.Charfield(max_lenght = 20)
+    appaterno = models.Charfield(max_lenght = 20)
+    apmaterno = models.Charfield(max_lenght = 20)
+    rut = models.charfield(max_lenght = 12)
+    telefono1 = models.Charfield(max_lenght = 20)
+    telefono2 = models.Charfield(max_lenght = 20,null='true')
+    email = models
+
+    
+
+
+
 
 
 
