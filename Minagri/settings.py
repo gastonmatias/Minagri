@@ -41,7 +41,10 @@ INSTALLED_APPS = [
 
     #apps propias
     'TiendaVirtual',
+    'crispy_forms',#para customizar formularios
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'#para customizar formularios
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

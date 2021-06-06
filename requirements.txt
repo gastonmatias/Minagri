@@ -1,0 +1,20 @@
+##este archivo 'requirements.txt' es de buena practica
+## la idea es dejar constancia de los requerimientos
+## del proyecto, y si en algun momento uno se cambia de pc
+## puede ejecutar este archivo x terminal e instalar facilmente
+## las dependencias utilizadas ("pip3 install -r requirements.txt")
+
+##framework
+django == 3.2.3
+
+    ##para conocer tu version propia de django:
+    ## $ python3 -m django --version    
+
+## dependencia para el manejo de imagenes
+pillow
+
+##para personalizar la interfaz de django admin
+django-admin-interface
+
+##para integrar estilos de form bootstrap con django
+django-crispy-forms
