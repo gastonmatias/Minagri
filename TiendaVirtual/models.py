@@ -32,3 +32,8 @@ class Producto(models.Model):
     precioKiloMayorista = models.IntegerField(null='true')
     descripcion = models.CharField(max_length=100)
 
+# class Venta(models.Model):
+#     idVenta
+#     idCliente
+#     idAgricultor
+    
