@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Productor(models.Model):
+class Agricultor(models.Model):
     #requisitos minimos agricultor publicitario-vendedor
     nombre = models.CharField(max_length = 20)
     appaterno = models.CharField(max_length = 20)
@@ -25,3 +25,10 @@ class Cliente(models.Model):
     telefono1 = models.CharField(max_length = 15)
     telefono2 = models.CharField(max_length = 15,null='true')
     email = models.EmailField
+
+class Producto(models.Model):
+    nombreProducto = models.CharField(max_length = 20)
+    precioKilo = models.IntegerField
+    precioKiloMayorista = models.IntegerField(null='true')
+    descripcion = models.CharField(max_length=100)
+

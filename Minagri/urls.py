@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #url propios de la app
-    path('registro/', registro, name='registro')
+    path('registro/', registro, name='registro'),
 ]
