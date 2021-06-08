@@ -1,0 +1,56 @@
+{% load static %}<!--indica qe se carga la carpeta static-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo_pagina %} {% endblock%}</title>
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	<!--css de layout padre-->
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+
+    <!--Css de cada html hijo-->
+    {% block css %}
+	{% endblock %}
+
+</head>
+<body>
+    <div class="contenedor">
+		
+		<header>
+			<div class="logo">
+				<img src="{% static 'img/logo1.jpg' %}" alt="">
+				<a href="#">Minagri</a>
+			</div>
+
+			<nav>
+				<a href="">Inicio</a>
+				<a href="">Iniciar Sesion</a>
+				<a href="">Crear Cuenta</a>
+			</nav>
+		</header>
+
+
+        {% block contenido %}
+            <!--todo el codigo de las demas paginas hijas irá aqui-->
+        {% endblock %}
+       
+		<footer>
+			<section class="links">
+				<a href="#">Fb</a>
+				<a href="#">Insta</a>
+			</section>
+
+			<div class="soporte">
+				<a href="#">Ayuda</a>
+			</div>
+		</footer>
+
+	
+	</div>
+</body>
+</html>

@@ -16,11 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from TiendaVirtual.views import registro
+from TiendaVirtual.views import registrarPublicitario
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     #url propios de la app
-    path('registro/', registro, name='registro'),
+    path('registro-publicitario/', registrarPublicitario, name='registrarPublicitario'),
 ]
