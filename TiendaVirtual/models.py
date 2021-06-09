@@ -10,9 +10,9 @@ class Agricultor(models.Model):
     nombreComercial = models.CharField('Nombre Comercial',max_length=25,null='true',blank=True)
     telefono1 = models.CharField('Telefono 1',max_length = 15)
     telefono2 = models.CharField('Telefono 2',max_length = 15,null='true',blank=True)
-    
-    #requisitos exclusivos agricultor vendedor
     email = models.EmailField('Correo Electronico',null='true')
+
+    #requisitos exclusivos agricultor vendedor
     bancoAsociado = models.CharField(max_length = 20,null='true')
     nroCuenta = models.IntegerField(null='true')
 
