@@ -1,10 +1,20 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %}<!--Se indica que se heredará la plantilla html layout.html-->
 
-{% block_contenido %}
-
-<div></div>
-<div></div>
-<div></div>
-
-
+{% block css %}<!--Css exclusivo de html hijo registro-cliente.html-->
+    <link rel="stylesheet" href="{% static 'css/registro-cliente.css' %}">
 {% endblock %}
+
+
+{% block_contenido %}<!--Inicio de contenido de pagina registro-cliente.html-->
+
+<!--Aqui codificar todo el contenido de registro-cliente-->
+
+
+
+
+
+
+
+
+
+{% endblock %}<!--Fin de contenido de pagina registro-cliente.html-->
