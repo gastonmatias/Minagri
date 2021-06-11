@@ -13,8 +13,8 @@ class Agricultor(models.Model):
     email = models.EmailField('Correo Electronico',null='true')
 
     #requisitos exclusivos agricultor vendedor
-    bancoAsociado = models.CharField(max_length = 20,null='true')
-    nroCuenta = models.IntegerField(null='true')
+    bancoAsociado = models.CharField('Banco Asociado',max_length = 20,null='true')
+    nroCuenta = models.IntegerField('Nro Cuenta',null='true')
 
     class Meta:
         verbose_name = 'Agricultor'
@@ -25,13 +25,13 @@ class Agricultor(models.Model):
 
 
 class Cliente(models.Model):
-    nombre = models.CharField(max_length = 20)
-    appaterno = models.CharField(max_length = 20)
-    apmaterno = models.CharField(max_length = 20)
-    rut = models.CharField(max_length = 12)
-    telefono1 = models.CharField(max_length = 15)
-    telefono2 = models.CharField(max_length = 15,null='true')
-    email = models.EmailField
+    nombre = models.CharField('Nombre',max_length = 20)
+    appaterno = models.CharField('Apellido Paterno',max_length = 20)
+    apmaterno = models.CharField('Apellido Materno',max_length = 20)
+    rut = models.CharField('Rut (sin puntos, con guion)',max_length = 12)
+    telefono1 = models.CharField('Telefono 1',max_length = 15)
+    telefono2 = models.CharField('Telefono 2',max_length = 15,null='true')
+    email = models.EmailField('Correo electronico')
 
     class Meta:
         verbose_name = 'Cliente'
