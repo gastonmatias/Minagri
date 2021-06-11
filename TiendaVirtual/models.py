@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+# modelo de bd para Agricultor (vendedor y publicitario)
 class Agricultor(models.Model):
     #requisitos minimos agricultor publicitario-vendedor
     nombre = models.CharField('Primer Nombre',max_length = 20)
@@ -13,8 +15,8 @@ class Agricultor(models.Model):
     email = models.EmailField('Correo Electronico',null='true')
 
     #requisitos exclusivos agricultor vendedor
-    bancoAsociado = models.CharField('Banco Asociado',max_length = 20,null='true')
-    nroCuenta = models.IntegerField('Nro Cuenta',null='true')
+    bancoAsociado = models.CharField('Banco Asociado',max_length = 20,null='true',blank=True)
+    nroCuenta = models.IntegerField('Nro Cuenta',null='true',blank=True)
 
     class Meta:
         verbose_name = 'Agricultor'
@@ -24,13 +26,14 @@ class Agricultor(models.Model):
         return "{0}, {1}".format(self.appaterno,self.nombre)
 
 
+# modelo bd para Cliente
 class Cliente(models.Model):
     nombre = models.CharField('Nombre',max_length = 20)
     appaterno = models.CharField('Apellido Paterno',max_length = 20)
     apmaterno = models.CharField('Apellido Materno',max_length = 20)
     rut = models.CharField('Rut (sin puntos, con guion)',max_length = 12)
     telefono1 = models.CharField('Telefono 1',max_length = 15)
-    telefono2 = models.CharField('Telefono 2',max_length = 15,null='true')
+    telefono2 = models.CharField('Telefono 2',max_length = 15,null='true',blank=True)
     email = models.EmailField('Correo electronico')
 
     class Meta:

@@ -1,5 +1,8 @@
+#importaciones propias de django, necesarias para poder plasmar paginas html
 from django.shortcuts import redirect, render
-from TiendaVirtual.forms import PublicitarioForm
+
+#se importan los formularios creados en forms.py
+from TiendaVirtual.forms import PublicitarioForm, VendedorForm, ClienteForm
 
 # Create your views here.
 def registrarPublicitario(request):
@@ -9,7 +12,7 @@ def registrarPublicitario(request):
         'form': PublicitarioForm()
     }
 
-    #los inputs del formulario de registro rellenados por algun usuario 
+    # los inputs del formulario de registro rellenados por algun usuario 
     # llegan devuelta a esta vista "def registrarPublicitario(request)", 
     
     # ahora se busca qe si los datos de estos inputs
@@ -21,11 +24,45 @@ def registrarPublicitario(request):
         
         #si pasa la prueba de metodo post + SI pasa validaciones de form.. 
         if formulario.is_valid():
-            formulario.save()
+            formulario.save() # se guarda el contenido en la bd!
             data["mensaje"] = "Registro Exitoso!"
         # si pasa la prueba de metodo post + NO pasa validaciones de form...
         else:
-            data["form"] = formulario #se sobreescribe el form
+            data["form"] = formulario #se sobreescribe el form en el html
 
     
-    return render (request,'registro-publicitario.html',data)
+    return render (request,'registro-publicitario.html',data)#'data' se pasa como 3ra parametro para qe se imprima el form en el html
+
+def registrarVendedor(request):
+    
+    data = {
+        'form': VendedorForm()
+    }
+
+    if request.method == 'POST':
+        formulario = PublicitarioForm(data=request.POST, files=request.FILES)
+        
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Registro Exitoso!"
+        else:
+            data["form"] = formulario 
+
+    return render (request,'registro-vendedor.html',data)
+
+def registrarCliente(request):
+    
+    data = {
+        'form': ClienteForm()
+    }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST, files=request.FILES)
+        
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Registro Exitoso!"
+        else:
+            data["form"] = formulario 
+
+    return render (request,'registro-cliente.html',data)

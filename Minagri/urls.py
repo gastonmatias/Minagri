@@ -16,11 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from TiendaVirtual.views import registrarPublicitario
+#imports de views.py
+from TiendaVirtual.views import registrarCliente, registrarPublicitario, registrarVendedor
 
 urlpatterns = [
+    #url del sitio administrativo de django
     path('admin/', admin.site.urls),
 
-    #url propios de la app
+    # url propios de la app Minagri
+        # parametros en "()":
+        # 1) url tal cual la vera el usuario en la web
+        # 2) nombre de la funcion a la cual hace referencia (de views.py)
+        # 3) nombre dado a la url (parametro opcional, es util para usarlo en 
+        # redireccionamientos, por ejemplo en los "<nav>" de un html ) 
     path('registro-publicitario/', registrarPublicitario, name='registrarPublicitario'),
+    path('registro-vendedor/', registrarVendedor, name='registrarVendedor'),
+    path('registro-cliente/', registrarCliente, name='registrarCliente'),
+
 ]

@@ -1,0 +1,59 @@
+[33mcommit 60cbca008de4b28200fed11b399d1520efdeccb2[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Fri Jun 11 13:13:04 2021 -0400
+
+    Peqeñas correciones a Models.py
+
+[33mcommit d754c6a23eab1a3d2c617d247314a96cda2e61c5[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Wed Jun 9 22:28:21 2021 -0400
+
+    plantillas de css + comentarios diversos
+
+[33mcommit 19a39c12de7f6cba044e56129ecc57e9ac33908d[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Wed Jun 9 14:14:55 2021 -0400
+
+    Se agregaron html
+
+[33mcommit f6544b23e85c2ace42d8f2561d422fefe6cff0b4[m
+Author: gasvillagra <gas.villagra@duocuc.cl>
+Date:   Tue Jun 8 19:37:51 2021 -0400
+
+    Formulario de Registro Agricultor Publicitario
+
+[33mcommit 792da1a5f2399095a1b2b6daf026bb5951e65679[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Sun Jun 6 20:28:36 2021 -0400
+
+    Creacion Grupos +  Users de testeo (leer nota.txt)
+
+[33mcommit 564be1075968de4406c0f5d8f86b075a975fcb56[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Sun Jun 6 20:04:52 2021 -0400
+
+    creacion superuser + modelo Producto + modelo Productor cambiado a Agricultor
+
+[33mcommit 71950609021bb9ae90f4daa81e61341d0362927f[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Sat Jun 5 23:34:26 2021 -0400
+
+    Formulario Registro standar
+
+[33mcommit e10dc95ae0a6320a9111ece685918efec8018788[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Sat Jun 5 19:52:24 2021 -0400
+
+    Models productor + cliente
+
+[33mcommit 84070a54cfa571625d0602e7bdefea019e9b57bd[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Sat Jun 5 19:38:12 2021 -0400
+
+    Configuracion settings.py: static + templates
+
+[33mcommit c694bea1ca16d9ee8dd2302da8a5bf3f4dccab62[m
+Author: gmatias <g.matiasvillagra@gmail.com>
+Date:   Sat Jun 5 19:18:01 2021 -0400
+
+    Primer Commit proyecto Minagri
