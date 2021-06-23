@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block css %}<!--Css exclusivo de html hijo registro-cliente.html-->
+    <link rel="stylesheet" href="{% static 'css/agregar-producto.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-12 col-md6 offset-md-3">
+
+                <form action="" method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    {{form}}
+
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" value="Cancelar" class="btn btn-secondary">
+                        &nbsp; <!--un simple espacio entre los botones-->
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

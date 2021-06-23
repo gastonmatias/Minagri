@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #librerias
+    'django.contrib.humanize',
+
     #apps propias
     'TiendaVirtual',
     'crispy_forms',#para customizar formularios

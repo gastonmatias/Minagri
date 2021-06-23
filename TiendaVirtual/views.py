@@ -1,8 +1,9 @@
 #importaciones propias de django, necesarias para poder plasmar paginas html
+from TiendaVirtual.models import Producto
 from django.shortcuts import redirect, render
 
 #se importan los formularios creados en forms.py
-from TiendaVirtual.forms import PublicitarioForm, VendedorForm, ClienteForm
+from TiendaVirtual.forms import PublicitarioForm, VendedorForm, ClienteForm, ProductoForm
 
 # Create your views here.
 def registrarPublicitario(request):
@@ -66,3 +67,30 @@ def registrarCliente(request):
             data["form"] = formulario 
 
     return render (request,'registro-cliente.html',data)
+
+def agregarProducto(request):
+
+    data = {
+        'form': ProductoForm
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, files=request.FILES)#files es para la imagen
+
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Producto guardado correctamente!"
+        else:
+            data["form"] = formulario 
+
+    return render(request,'producto/agregar.html',data)
+
+def listarProductos(request):
+
+    productos = Producto.objects.all()
+
+    data = {
+        'productos' : productos
+    }
+
+    return render(request, 'producto/listar.html',data)

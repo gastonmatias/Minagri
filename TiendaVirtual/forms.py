@@ -1,6 +1,6 @@
 from django.forms import fields
 #se importan los modelos de bd que se usaran como base para crear los forms (desde models.py)
-from TiendaVirtual.models import Agricultor, Cliente
+from TiendaVirtual.models import Agricultor, Cliente, Producto
 
 #se importa la utilidad de django de formulario x defecto
 from django import forms
@@ -31,3 +31,10 @@ class ClienteForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ['nombre','appaterno','apmaterno','rut','telefono1','telefono2','email']
+
+# formulario para agregar producto
+class ProductoForm(forms.ModelForm):
+
+    class Meta:
+        model = Producto
+        fields = '__all__'

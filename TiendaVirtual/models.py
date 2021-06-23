@@ -44,10 +44,11 @@ class Cliente(models.Model):
         return "{0}, {1}".format(self.appaterno,self.nombre)
 
 class Producto(models.Model):
-    nombreProducto = models.CharField(max_length = 20)
-    precioKilo = models.IntegerField
-    precioKiloMayorista = models.IntegerField(null='true')
-    descripcion = models.CharField(max_length=100)
+    nombreProducto = models.CharField('Nombre Producto',max_length = 20)
+    precioKilo = models.IntegerField('Precio Kg',null=True)
+    precioKiloMayorista = models.IntegerField('Precio Kg Mayorista',null='true',blank=True)
+    descripcion = models.CharField('Descripcion',max_length=100)
+    imagen = models.ImageField('Fotografia (Opcional)',upload_to='productos',null=True, blank='True')
 
     class Meta:
         verbose_name = 'Producto'

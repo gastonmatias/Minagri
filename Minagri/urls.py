@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 #imports de views.py
-from TiendaVirtual.views import registrarCliente, registrarPublicitario, registrarVendedor
+from TiendaVirtual.views import agregarProducto, registrarCliente, registrarPublicitario, registrarVendedor, listarProductos
 
 urlpatterns = [
     #url del sitio administrativo de django
@@ -32,5 +32,7 @@ urlpatterns = [
     path('registro-publicitario/', registrarPublicitario, name='registrarPublicitario'),
     path('registro-vendedor/', registrarVendedor, name='registrarVendedor'),
     path('registro-cliente/', registrarCliente, name='registrarCliente'),
+    path('agregar-producto/', agregarProducto, name='agregarProducto'),
+    path('listar-productos/', listarProductos, name='listarProductos'),
 
 ]
