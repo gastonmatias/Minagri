@@ -34,9 +34,12 @@ html heredaran el contenido escrito aqui, reciclando codigo-->
 			</div>
 
 			<nav>
-				<a href="">Inicio</a>
+				<!--<a href="">Inicio</a>
 				<a href="">Iniciar Sesion</a>
-				<a href="">Crear Cuenta</a>
+				<a href="">Crear Cuenta</a>-->
+				<a href="{% url 'listarProductos' %}">Mis Productos</a>
+				<a href="{% url 'agregarProducto' %}">Agregar Producto</a>
+				
 			</nav>
 		</header>
 

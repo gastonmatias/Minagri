@@ -9,3 +9,6 @@ django == 3.2.3
 
 ##para integrar estilos de form bootstrap con django
 django-crispy-forms
+
+##para manejo de imagenes
+pillow

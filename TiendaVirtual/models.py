@@ -46,7 +46,7 @@ class Cliente(models.Model):
 class Producto(models.Model):
     nombreProducto = models.CharField('Nombre Producto',max_length = 20)
     precioKilo = models.IntegerField('Precio Kg',null=True)
-    precioKiloMayorista = models.IntegerField('Precio Kg Mayorista',null='true',blank=True)
+    precioKiloMayorista = models.IntegerField('Precio Kg Mayorista',null='true')
     descripcion = models.CharField('Descripcion',max_length=100)
     imagen = models.ImageField('Fotografia (Opcional)',upload_to='productos',null=True, blank='True')
 

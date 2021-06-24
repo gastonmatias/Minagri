@@ -14,6 +14,7 @@
                 <th>$ Kg Mayorista</th>
                 <th>Descripcion</th>
                 <th>Imagen</th>
+                <th>Opciones</th>
             </tr>
          
             {% for p in productos %}
@@ -23,6 +24,13 @@
                 <td >${{p.precioKiloMayorista | intcomma }}</td>
                 <td >{{p.descripcion }}</td>
                 <td ><img src="{{ p.imagen.url }}" width="250" height="250"></td>
+                <td>
+                    <a href="{% url 'modificarProducto'  p.id %}" class="btn btn-info btn-sm" >Modificar</a>
+                    <!--como la url modificarProducto necesita un parametro de entrada tipo "id"
+                    se le otorga dicho parametro con "p.id", entregandole la id del producto qe se 
+                    esta imprimiendo en la fila de la tabla-->
+                    <a href="{% url 'eliminarProducto'  p.id %}" class="btn btn-info btn-danger btn-sm" >Eliminar</a>
+                </td>
                
             </tr>
             {% endfor %}

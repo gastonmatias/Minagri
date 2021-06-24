@@ -16,8 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+#para manejo de imagenes
+from django.conf import settings
+from django.conf.urls.static import static
+
 #imports de views.py
-from TiendaVirtual.views import agregarProducto, registrarCliente, registrarPublicitario, registrarVendedor, listarProductos
+from TiendaVirtual.views import registrarCliente, registrarPublicitario, registrarVendedor
+
+#crud
+from TiendaVirtual.views import agregarProducto,listarProductos, modificarProducto, eliminarProducto
+
+## TEST
+from TiendaVirtual.views import ProductoDetailView
 
 urlpatterns = [
     #url del sitio administrativo de django
@@ -34,5 +44,15 @@ urlpatterns = [
     path('registro-cliente/', registrarCliente, name='registrarCliente'),
     path('agregar-producto/', agregarProducto, name='agregarProducto'),
     path('listar-productos/', listarProductos, name='listarProductos'),
+    path('modificar-producto/<id>', modificarProducto, name='modificarProducto'),
+    path('eliminar-producto/<id>', eliminarProducto, name='eliminarProducto'),
+
+    #############################################################
+    path('listar/<user>',ProductoDetailView.as_view(), name='DeptoDetailView'),
 
 ]
+
+#para acceder a imagenes en la carpeta "media" del proyecto
+#OJO: este metodo solo es para DEBUG no para version empresarial
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)#para guardar imagenes subidas al sitio web

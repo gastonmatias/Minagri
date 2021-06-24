@@ -1,6 +1,7 @@
 #importaciones propias de django, necesarias para poder plasmar paginas html
 from TiendaVirtual.models import Producto
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, HttpResponse, get_object_or_404
+from django.views.generic import ListView, FormView, View
 
 #se importan los formularios creados en forms.py
 from TiendaVirtual.forms import PublicitarioForm, VendedorForm, ClienteForm, ProductoForm
@@ -94,3 +95,54 @@ def listarProductos(request):
     }
 
     return render(request, 'producto/listar.html',data)
+
+def modificarProducto(request, id):
+    
+    producto = get_object_or_404(Producto, id=id) 
+
+    data = {
+        'form' : ProductoForm(instance=producto)#se instancia un formulario rellenado con datos
+    }
+
+    if request.method == 'POST':
+        formulario = ProductoForm(data=request.POST, instance=producto, files=request.FILES)#se pasa la instancia nuevamente para obtener la id del producto a modificar  
+        if formulario.is_valid:
+            formulario.save()
+            return redirect(to='listarProductos')
+        data['form'] = formulario
+    return render(request,'producto/modificar.html',data)
+
+def eliminarProducto(request, id):
+    producto = get_object_or_404(Producto, id=id) 
+    producto.delete()
+    return redirect (to='listarProductos')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################3##################
+#########################################################
+class ProductoDetailView(View):
+    def get(self, request, *args, **kwargs):
+        #se obtiene categoria desde la misma url del browser
+        nombre_producto = self.kwargs.get('nombre-producto',None)#segundo parametro = none, por si algun usuario escribe algo en la url estropearia la captura de la categoria
+        user = self.request.user
+
+        context ={
+            'user' : user
+        }
+        return render(request,'listar.html',context) 
+        
+ 
