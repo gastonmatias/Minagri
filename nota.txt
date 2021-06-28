@@ -1,13 +1,13 @@
 Algunos Usuarios creados para testeo:
 
 grupo clientes:
-cliente1
-pass: django123
+user: 
+pass: 
 
 grupo agricultor publicitario:
-user: agr.publicista1
+user: melquiades
 pass: django123
 
 grupo agricultor vendedor:
-user: agr.vendedor1
+user: 
 pass: django123

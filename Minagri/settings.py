@@ -28,6 +28,16 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Redirección una vez qe un user inicia y cierra sesion
+#LOGIN_REDIRECT_URL ='/'
+#LOGOUT_REDIRECT_URL = '/'
+
+# cuando un usuario se autentica, es redirigido a la raiz del sitio
+LOGIN_REDIRECT_URL =  'http://127.0.0.1:8000/home/'
+
+#cuando un usuario cierra sesion, es redirigido a la raiz del sitio (si, tambien)
+LOGOUT_REDIRECT_URL = 'http://127.0.0.1:8000/home/'
+
 
 # Application definition
 
@@ -38,7 +48,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+  
+    
+    # from django all_auth https://django-allauth.readthedocs.io/en/latest/installation.html
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 
+    
     #librerias
     'django.contrib.humanize',
 
@@ -57,6 +76,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
 ]
 
 ROOT_URLCONF = 'Minagri.urls'
@@ -125,6 +154,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -143,3 +173,9 @@ import os
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
+
+#para manejo de email en creacion de usuario con django
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+

@@ -96,6 +96,20 @@ def listarProductos(request):
 
     return render(request, 'producto/listar.html',data)
 
+class ReservaList(ListView):
+    model = Producto
+    
+    def get_queryset(self,*args, **kwargs):
+        # usuario admin podra ver TODAS las reservas
+        if self.request.user.is_staff:
+            producto_list = Producto.objects.all()
+            return producto_list
+
+        # usuario normal solo podra ver SUS PROPIAS reservas
+        else:
+            producto_list = Producto.objects.filter(user=self.request.user)
+            return producto_list
+
 def modificarProducto(request, id):
     
     producto = get_object_or_404(Producto, id=id) 
@@ -116,6 +130,10 @@ def eliminarProducto(request, id):
     producto = get_object_or_404(Producto, id=id) 
     producto.delete()
     return redirect (to='listarProductos')
+
+def home(request):
+    return render(request,'index.html')
+
 
 
 

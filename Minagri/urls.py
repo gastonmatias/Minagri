@@ -14,14 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 #para manejo de imagenes
 from django.conf import settings
 from django.conf.urls.static import static
 
 #imports de views.py
-from TiendaVirtual.views import registrarCliente, registrarPublicitario, registrarVendedor
+from TiendaVirtual.views import registrarCliente, registrarPublicitario, registrarVendedor, home
 
 #crud
 from TiendaVirtual.views import agregarProducto,listarProductos, modificarProducto, eliminarProducto
@@ -32,6 +32,9 @@ from TiendaVirtual.views import ProductoDetailView
 urlpatterns = [
     #url del sitio administrativo de django
     path('admin/', admin.site.urls),
+
+    #para django all_auth
+    #path('accounts/', include('allauth.urls')),
 
     # url propios de la app Minagri
         # parametros en "()":
@@ -46,6 +49,10 @@ urlpatterns = [
     path('listar-productos/', listarProductos, name='listarProductos'),
     path('modificar-producto/<id>', modificarProducto, name='modificarProducto'),
     path('eliminar-producto/<id>', eliminarProducto, name='eliminarProducto'),
+    path('home/', home, name='home'),
+    path('accounts/',include('django.contrib.auth.urls')),
+
+    
 
     #############################################################
     path('listar/<user>',ProductoDetailView.as_view(), name='DeptoDetailView'),

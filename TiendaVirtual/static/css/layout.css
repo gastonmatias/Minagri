@@ -81,11 +81,16 @@ header nav a {
 	flex-grow:1;
 }
 
+
+
 header nav a:hover {
 	background:#e74c3c;
 }
 
-
+/*nav .nombreusuario{
+	background: black;
+	color: brown;
+}*/
 
 footer {
 	/* background:#2c3e50; */
