@@ -135,32 +135,32 @@ def home(request):
     return render(request,'index.html')
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #######################################3##################
 #########################################################
-class ProductoDetailView(View):
-    def get(self, request, *args, **kwargs):
-        #se obtiene categoria desde la misma url del browser
-        nombre_producto = self.kwargs.get('nombre-producto',None)#segundo parametro = none, por si algun usuario escribe algo en la url estropearia la captura de la categoria
-        user = self.request.user
+class AgregarProducto2(View):
+    def get(self,request):
+        form = ProductoForm
 
-        context ={
-            'user' : user
+        data = {
+            'form': ProductoForm
         }
-        return render(request,'listar.html',context) 
+        return render(request,'producto/agregar.html',data)
+
+    def post(self,request):
+        form = ProductoForm(request.POST,request.FILES)
+    
+
+        if form.is_valid():
+            data = form.cleaned_data
         
- 
+        nuevo_producto = Producto.objects.create(
+            user = self.request.user,
+            nombreProducto = data['nombreProducto'],
+            precioKilo = data['precioKilo'],
+            precioKiloMayorista = data['precioKiloMayorista'],
+            descripcion = data['descripcion'],
+            imagen = data['imagen']
+            )
+        nuevo_producto.save()
+        return redirect (to='listarProductos')
+        #return render(request, 'producto/listar.html')

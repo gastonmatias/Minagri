@@ -57,6 +57,6 @@ class Producto(models.Model):
         verbose_name_plural = 'Productos'
     
     def __str__(self):
-        return self.nombreProducto
-
+        #return self.nombreProducto
+        return "{0} de {1}".format(self.nombreProducto,self.user)
 

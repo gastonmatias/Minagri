@@ -6,7 +6,7 @@
 <div class="row">
     <div class="card">
         {% if user.is_authenticated %}
-        <h2>Bienvenido {{user.username}} </h2>
+        <h2>Bienvenido @{{user.username}} </h2>
         {% endif %}
 
         <img src="{% static 'img/logo_slogan.png' %}" alt="" width="60%">

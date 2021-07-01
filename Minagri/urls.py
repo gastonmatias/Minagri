@@ -27,7 +27,7 @@ from TiendaVirtual.views import registrarCliente, registrarPublicitario, registr
 from TiendaVirtual.views import agregarProducto,listarProductos, modificarProducto, eliminarProducto
 
 ## TEST
-from TiendaVirtual.views import ProductoDetailView
+from TiendaVirtual.views import AgregarProducto2
 
 urlpatterns = [
     #url del sitio administrativo de django
@@ -55,7 +55,7 @@ urlpatterns = [
     
 
     #############################################################
-    path('listar/<user>',ProductoDetailView.as_view(), name='DeptoDetailView'),
+    path('agregar2/',AgregarProducto2.as_view(), name='AgregarProducto2'),
 
 ]
 
