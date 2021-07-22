@@ -5,7 +5,7 @@
 ## las dependencias utilizadas (ej: "pip3 install -r requirements.txt")
 
 ##framework
-django == 3.2.3
+#django == 3.2.3
 
 ##para integrar estilos de form bootstrap con django
 django-crispy-forms
